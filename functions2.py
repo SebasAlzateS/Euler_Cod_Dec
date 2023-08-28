@@ -1,21 +1,22 @@
 def opciones(mensaje):
     '''
-    Recibe el enunciado (str), luego deja ingresar opcion al usuario, la opcion debe ser c o d.
+    Recibe: el enunciado string (str), luego deja ingresar opcion al usuario, la opcion debe ser "c" o "d".
     
     Retorna: dato entero
     '''
     while True:
-        menu = input(mensaje).lower()       #El usuario ingresa la opcion, y se convierte a minuscula
+        menu = input(mensaje).lower() #El usuario ingresa la opcion, y se convierte a letras minuscula
         caracteres = 'cd'           #Caracteres permitidos
-        entrada_valida = True       #Se inicializa en verdadero
+        entrada_valida = True       #Bandera: Se inicializa en verdadero
         
-        for char in menu:           #Recorre posicion por posicion, lo ingresado por el usuario
-            if char not in caracteres:  #Si no existe el caracter c o d en ninguna posicion
-                entrada_valida = False  #Cambia el estado a falso
-                break                   #Rompe ciclo for
+        for char in menu:       #Recorre posicion por posicion, lo ingresado por el usuario    
+            if char not in caracteres:  #Si no existe el caracter "c" o "d" en ninguna posicion
+                entrada_valida = False   #Cambia el estado a falso
+                break                 #Rompe el ciclo for
+         
         
         
-        if entrada_valida:      #Si entrada_valida = True ; verificar si se ingresó letra c o d
+        if entrada_valida:      #Si entrada_valida = True ; verificar si se ingresó la letra "c" o "d"
             if menu == 'c':
                 menu = 0       #Si ingresa c , guardar 0 
                 break 
