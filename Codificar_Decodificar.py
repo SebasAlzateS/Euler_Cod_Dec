@@ -3,7 +3,7 @@
 '''
 SEBASTIÁN ALZATE
 FERNANDO GARCIA
-DANIELA SANCHEZ
+DANIELA DEOSSA SANCHEZ
 '''
 
 #Importación de libreria con funciones propias.
