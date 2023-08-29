@@ -87,3 +87,16 @@ def validar_entrada():
         
     return(edo_input)
 
+def dato_numerico2(enunciado):
+    '''
+    Recibe el enunciado, lo muestra como un input y retorna dato siempre y cuando no se ingresen letras. 
+    
+    Retorna: Dato flotante
+
+    También descarta caracteres especiales, por ejemplo, ',' ' ' '/' '*' '.' entre otros
+    '''
+    dato = input(enunciado)
+    while dato.isdigit() != True:
+        print('El dato que ingresó no es válido')
+        dato = input(enunciado)        
+    return float(dato)
