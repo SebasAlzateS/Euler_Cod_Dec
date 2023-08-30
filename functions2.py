@@ -28,7 +28,7 @@ def opciones(mensaje):
                 print("Entrada no permitida")   #Si ingresa mas de una c, d o combinadas.
                 
         else:
-            print("Entrada no permitida")   #Si entrada_valida = False
+            print("Entrada no permitida")   #Si entrada_valida = False, else de entrada valida.
             
     return int(menu)
 
@@ -70,9 +70,9 @@ def dato_entero_positivo(enunciado):
             if int(dato) >= 0:  # Verificamos si el número es positivo o igual a cero
                 break
             else:
-                print("Entrada no válida - Solo se permiten ingresar números enteros positivos.")
+                print("Entrada no válida - Solo se permiten ingresar números enteros positivos.") # numero menos a cero
         else:
-            print("Entrada no válida - Solo se permiten ingresar números enteros positivos.")
+            print("Entrada no válida - Solo se permiten ingresar números enteros positivos.") # numero posee caracteres
     return int(dato)
 
 
