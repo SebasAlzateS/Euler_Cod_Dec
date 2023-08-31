@@ -3,7 +3,7 @@
 '''
 SEBASTIÁN ALZATE
 FERNANDO GARCIA
-DANIELA DEOSSA SANCHEZ
+DANIELA SANCHEZ
 '''
 
 #Importación de libreria con funciones propias.
@@ -19,13 +19,5 @@ print('Por favor, ingrese un mensaje valido que solo contenga letras de a - Z.')
 
 mensaje = ft.validar_entrada('Ingrese el mensaje (solo letras a-Z): ')
 desplazamiento = ft.dato_entero_positivo('Ingrese el desplazamiento utilizado en el cifrado (número entero): ')
-
-
-if menu == 0:
-    respuesta = ft.cifrar(mensaje, desplazamiento)
-    print('El mensaje codificado es: ',respuesta)
-else:
-    respuesta = ft.decodificar(mensaje, desplazamiento)
-    print('El mensaje decodificado es: ',respuesta)
-
+respuesta = ft.decision(menu, mensaje, desplazamiento)
 
