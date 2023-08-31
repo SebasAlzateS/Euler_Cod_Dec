@@ -82,7 +82,6 @@ def cifrar(mensaje, desplazamiento):
     '''
     resultado = ""          #Se crea un STR donde se almacenará el resultado
     for char in mensaje:    #Recorre mensaje caracter por caracter
-        if char.isalpha():  #Si el mensaje contiene letras
             codigo_ascii = ord(char)    #Ascii actual
             
             if char.islower():  #Saber si el caracter actual esta en minuscula
