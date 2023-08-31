@@ -1,22 +1,21 @@
 def opciones(mensaje):
     '''
-    Recibe: el enunciado string (str), luego deja ingresar opcion al usuario, la opcion debe ser "c" o "d".
+    Recibe el enunciado (str), luego deja ingresar opcion al usuario, la opcion debe ser c o d.
     
     Retorna: dato entero
     '''
     while True:
-        menu = input(mensaje).lower() #El usuario ingresa la opcion, y se convierte a letras minuscula
+        menu = input(mensaje).lower()       #El usuario ingresa la opcion, y se convierte a minuscula
         caracteres = 'cd'           #Caracteres permitidos
-        entrada_valida = True       #Bandera: Se inicializa en verdadero
+        entrada_valida = True       #Se inicializa en verdadero
         
-        for char in menu:       #Recorre posicion por posicion, lo ingresado por el usuario    
-            if char not in caracteres:  #Si no existe el caracter "c" o "d" en ninguna posicion
-                entrada_valida = False   #Cambia el estado a falso
-                break                 #Rompe el ciclo for
-         
+        for char in menu:           #Recorre posicion por posicion, lo ingresado por el usuario
+            if char not in caracteres:  #Si no existe el caracter c o d en ninguna posicion
+                entrada_valida = False  #Cambia el estado a falso
+                break                   #Rompe ciclo for
         
         
-        if entrada_valida:      #Si entrada_valida = True ; verificar si se ingresó la letra "c" o "d"
+        if entrada_valida:      #Si entrada_valida = True ; verificar si se ingresó letra c o d
             if menu == 'c':
                 menu = 0       #Si ingresa c , guardar 0 
                 break 
@@ -28,7 +27,7 @@ def opciones(mensaje):
                 print("Entrada no permitida")   #Si ingresa mas de una c, d o combinadas.
                 
         else:
-            print("Entrada no permitida")   #Si entrada_valida = False, else de entrada valida.
+            print("Entrada no permitida")   #Si entrada_valida = False
             
     return int(menu)
 
@@ -70,9 +69,9 @@ def dato_entero_positivo(enunciado):
             if int(dato) >= 0:  # Verificamos si el número es positivo o igual a cero
                 break
             else:
-                print("Entrada no válida - Solo se permiten ingresar números enteros positivos.") # numero menos a cero
+                print("Entrada no válida - Solo se permiten ingresar números enteros positivos.")
         else:
-            print("Entrada no válida - Solo se permiten ingresar números enteros positivos.") # numero posee caracteres
+            print("Entrada no válida - Solo se permiten ingresar números enteros positivos.")
     return int(dato)
 
 
@@ -92,6 +91,9 @@ def cifrar(mensaje, desplazamiento):
                 base = ord('A') #Si es mayuscula la base será A
             
             codificado = (codigo_ascii - base + desplazamiento) %26 + base
+            #Se transforma en un valor entre 0 y 25 y utilizamos el % para asegurar el rango
+            #Luego le sumamos la base para volver al valor ASCII válido
+            #Se suma porque buscamos desplazarnos a cifrar
             resultado += chr(codificado)
         
     return resultado
@@ -110,8 +112,22 @@ def decodificar(mensaje, desplazamiento):
             else:
                 base = ord('A') #Si es mayuscula la base será A
             
-            codificado = (codigo_ascii - base - desplazamiento) %26 + base
-            resultado += chr(codificado)
+            codificado = (codigo_ascii - base - desplazamiento) %26 + base 
+            #Se transforma en un valor entre 0 y 25 y utilizamos el % para asegurar el rango
+            #Luego le sumamos la base para volver al valor ASCII válido
+            #Se resta porque buscamos desplazarnos a decodificar algo que estaba cifrado
+            resultado += chr(codificado) #La variable resulado acumula los caracteres
         
     return resultado        
         
+def decision(menu, mensaje, desplazamiento):
+    '''
+    Recibe el mensaje deseado, desplazamiento y la opción de decodificar (1) o cifrar (0)
+    si la opcion fue cifrar o decodificar, usa la funcion creada previamente
+    '''
+    if menu == 0:
+        respuesta = cifrar(mensaje, desplazamiento)
+        print('El mensaje codificado es: ',respuesta)
+    else:
+        respuesta = decodificar(mensaje, desplazamiento)
+        print('El mensaje decodificado es: ',respuesta)
