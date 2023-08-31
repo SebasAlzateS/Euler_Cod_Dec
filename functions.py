@@ -86,4 +86,3 @@ def validar_entrada():
             print("Entrada no válida")
         
     return(edo_input)
-
